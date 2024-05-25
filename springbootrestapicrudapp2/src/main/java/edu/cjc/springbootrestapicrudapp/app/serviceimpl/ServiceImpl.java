@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.cjc.springbootrestapicrudapp.app.exception.ProductNotFoundException;
-import edu.cjc.springbootrestapicrudapp.app.model.Customer;
 import edu.cjc.springbootrestapicrudapp.app.model.Product;
-import edu.cjc.springbootrestapicrudapp.app.repository.CustomerRepository;
 import edu.cjc.springbootrestapicrudapp.app.repository.ProductRepository;
 import edu.cjc.springbootrestapicrudapp.app.servicei.ServiceI;
 
@@ -17,8 +15,7 @@ public class ServiceImpl implements ServiceI {
 	@Autowired
 	ProductRepository pr;
 	
-	@Autowired
-	CustomerRepository cr;
+	
 	
 	@Override
 	public Product saveProduct(Product p) {
@@ -46,20 +43,6 @@ public class ServiceImpl implements ServiceI {
 		}else {
 			throw new ProductNotFoundException("We regret to inform you that we did not found appropriate product");
 		}
-	}
-	@Override
-	public Customer saveCustomer(Customer c) {
-		return cr.save(c);
-
-	}
-	@Override
-	public List<Customer> getCustomers() {
-		return cr.findAll();
-	}
-	@Override
-	public List<Customer> deleteCustomer(int customerId) {
-		 cr.deleteById(customerId);
-		 return cr.findAll();
 	}
 	
 	

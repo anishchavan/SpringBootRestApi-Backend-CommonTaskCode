@@ -2,7 +2,6 @@ package edu.cjc.springbootrestapicrudapp.app.servicei;
 
 import java.util.List;
 
-import edu.cjc.springbootrestapicrudapp.app.model.Customer;
 import edu.cjc.springbootrestapicrudapp.app.model.Product;
 
 public interface ServiceI {
@@ -16,13 +15,5 @@ public interface ServiceI {
 	List<Product> deleteProduct(int id);
 
 	Product getProductByName(String productName);
-
-	Customer saveCustomer(Customer c);
-
-	List<Customer> getCustomers();
-
-	List<Customer> deleteCustomer(int customerId);
-
-
 
 }

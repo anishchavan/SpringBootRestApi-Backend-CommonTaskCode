@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.cjc.springbootrestapicrudapp.app.model.Product;
 import edu.cjc.springbootrestapicrudapp.app.servicei.ServiceI;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
@@ -30,7 +31,7 @@ public class ProductController {
 //	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
 	@PostMapping("/saveProduct")
-	public ResponseEntity<Product> saveProduct(@RequestBody Product p) {
+	public ResponseEntity<Product> saveProduct(@Valid @RequestBody Product p) {
 		
 //		try {
 //			int a = 10/0;
@@ -63,7 +64,7 @@ public class ProductController {
 	}
 	
 	@PutMapping("/updateProduct/{id}")
-	public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product p) {
+	public ResponseEntity<Product> updateProduct(@Valid @PathVariable int id, @RequestBody Product p) {
 		Product product = si.updateProduct(id);
 		product.setProductId(p.getProductId());
 		product.setProductName(p.getProductName());
