@@ -1,5 +1,7 @@
 package edu.cjc.springbootrestapicrudapp.app.userserviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,16 @@ public class UserServiceImpl implements UserService {
 		ur.save(u);
 		
 	}
+	@Override
+	public List<User> getDocument() {
+		return ur.findAll();
+	}
+	@Override
+	public List<User> deleteDocument(int uid) {
+		ur.deleteById(uid);
+		return ur.findAll();
+	}
+	
+
 
 }
